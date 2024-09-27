@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Donors</title>
+    <style>
+        /* Add your styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+    </style>
+    <link rel="stylesheet" href="search.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Search Donors</h2>
+        <select id="state">
+            <option value="" disabled selected>Select State</option>
+            <!-- Populate with states -->
+        </select>
+        <select id="city">
+            <option value="" disabled selected>Select City</option>
+            <!-- Populate with cities -->
+        </select>
+        <select id="bloodGroup">
+            <option value="" disabled selected>Select Blood Group</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select>
+        <button id="searchButton">Search</button>
+        <div id="resultsContainer"></div>
+    </div>
+
+    <script src="search.js"></script>
+    <script>
+        // States and Cities Data
+        const statesAndCities = {
+            "Andhra Pradesh": ["Amaravati", "Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Kakinada", "Tirupati"],
+            "Arunachal Pradesh": ["Itanagar", "Pasighat", "Naharlagun", "Tezu", "Aalo"],
+            "Assam": ["Guwahati", "Dibrugarh", "Silchar", "Nagaon", "Jorhat", "Tezpur"],
+            "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Purnia"],
+            "Chhattisgarh": ["Raipur", "Bilaspur", "Durg", "Korba", "Jagdalpur"],
+            "Goa": ["Panaji", "Margao", "Mapusa", "Ponda", "Vasco da Gama"],
+            "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Anand", "Bhavnagar"],
+            "Haryana": ["Chandigarh", "Faridabad", "Gurgaon", "Panipat", "Ambala"],
+            "Himachal Pradesh": ["Shimla", "Dharamshala", "Mandi", "Solan", "Kullu"],
+            "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Deoghar"],
+            "Karnataka": ["Bengaluru", "Mysuru", "Mangaluru", "Hubli", "Davangere"],
+            "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Kollam", "Thrissur"],
+            "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior", "Ujjain", "Sagar"],
+            "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad"],
+            "Manipur": ["Imphal", "Thoubal", "Churachandpur", "Kakching", "Tamenglong"],
+            "Meghalaya": ["Shillong", "Tura", "Jowai", "Nongstoin", "Bholaganj"],
+            "Mizoram": ["Aizawl", "Lunglei", "Saiha", "Champhai", "Khawzawl"],
+            "Nagaland": ["Kohima", "Dimapur", "Mokokchung", "Wokha", "Zunheboto"],
+            "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Sambalpur"],
+            "Punjab": ["Chandigarh", "Amritsar", "Ludhiana", "Jalandhar", "Patiala"],
+            "Rajasthan": ["Jaipur", "Udaipur", "Jodhpur", "Ajmer", "Bikaner"],
+            "Sikkim": ["Gangtok", "Namchi", "Gyalshing", "Mangan", "Pakyong"],
+            "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem"],
+            "Telangana": ["Hyderabad", "Warangal", "Khammam", "Nizamabad", "Rangareddy"],
+            "Tripura": ["Agartala", "Ambassa", "Dharmanagar", "Udaipur", "Kailashahar"],
+            "Uttar Pradesh": ["Lucknow", "Kanpur", "Varanasi", "Agra", "Meerut"],
+            "Uttarakhand": ["Dehradun", "Haridwar", "Rudrapur", "Nainital", "Roorkee"],
+            "West Bengal": ["Kolkata", "Siliguri", "Durgapur", "Howrah", "Asansol"]
+        };
+
+        // Populate State dropdown
+        const stateDropdown = document.getElementById('state');
+        Object.keys(statesAndCities).forEach(state => {
+            const option = document.createElement('option');
+            option.value = state;
+            option.textContent = state;
+            stateDropdown.appendChild(option);
+        });
+
+        // Update Cities based on selected State
+        stateDropdown.addEventListener('change', function() {
+            const selectedState = this.value;
+            const cityDropdown = document.getElementById('city');
+            cityDropdown.innerHTML = `<option value="" disabled selected>Select City</option>`; // Reset city dropdown
+            if (selectedState) {
+                statesAndCities[selectedState].forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    cityDropdown.appendChild(option);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
