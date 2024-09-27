@@ -185,7 +185,6 @@ app.get('/donors', async (req, res) => {
 app.get('/search', async (req, res) => {
   const { state, city, bloodGroup } = req.query;
   
-  console.log('Search Parameters:', { state, city, bloodGroup });
   // Build the query based on provided parameters
   let query = 'SELECT full_name, blood_group, gender, DATE_FORMAT(dob, "%d-%m-%Y") AS dob, email, phone, state, city FROM users WHERE 1=1';
   const params = [];
