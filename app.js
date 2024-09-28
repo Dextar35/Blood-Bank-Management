@@ -1,11 +1,15 @@
 
 const express = require('express');
+const router = express.Router();
 const cors = require('cors'); // Import cors
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
+
+
+const JWT_SECRET = 'H3d$4#1f8jD2X9kA0qPlM$wZ7vE!cGh';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -14,6 +18,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors()); // Enable CORS for all routes
 app.use(express.json());  // This allows your app to handle JSON requests
+
 
 // Create a connection to the MySQL database
 const db = mysql.createConnection({
@@ -129,20 +134,36 @@ app.post('/login', async (req, res) => {
   });
 
 // Middleware to protect routes
-function authenticateToken(req, res, next) {
-    const token = req.header('Authorization');
-    if (!token) {
-      return res.status(401).json({ message: 'Access denied' });
-    }
+// function authenticateToken(req, res, next) {
+//   console.log(req);
+//     const token = req.header('Authorization');
+//     if (!token) {
+//       return res.status(401).json({ message: 'Access denied' });
+//     }
   
-    try {
-      const verified = jwt.verify(token, process.env.JWT_SECRET);
-      req.user = verified;  // Attach the user info to the request
-      next();
-    } catch (err) {
-      res.status(400).json({ message: 'Invalid token' });
-    }
+//     try {
+//       const verified = jwt.verify(token, process.env.JWT_SECRET);
+//       req.user = verified;  // Attach the user info to the request
+//       next();
+//     } catch (err) {
+//       res.status(400).json({ message: 'Invalid token' });
+//     }
+//   }
+
+function authenticateToken(req, res, next) {
+  const token = req.header('Authorization');
+  if (!token) {
+      return res.status(401).json({ message: 'Access denied' });
   }
+
+  try {
+      const verified = jwt.verify(token.split(' ')[1], process.env.JWT_SECRET); // Make sure to split and get the token
+      req.user = verified; // Attach the user info to the request
+      next();
+  } catch (err) {
+      res.status(400).json({ message: 'Invalid token' });
+  }
+}
 
   app.post('/change-password', authenticateToken, async (req, res) => {
     const { currentPassword, newPassword } = req.body;
@@ -211,6 +232,106 @@ app.get('/search', async (req, res) => {
       res.status(500).json({ error: 'Database error' });
   }
 });
+
+// app.put('/updateAccount', authenticateToken, async (req, res) => {
+//   console.log(req);
+
+
+//   res.json({message : 'ok'});
+
+  // try {
+  //     const query = `
+  //         UPDATE users 
+  //         SET full_name = ?, blood_group = ?, gender = ?, dob = ?, email = ?, phone = ?, state = ?, city = ? 
+  //         WHERE id = ?
+  //     `;
+  //     await db.promise().query(query, [fullName, bloodGroup, gender, dob, email, phone, state, city, userId]);
+
+  //     res.status(200).json({ message: 'Account updated successfully' });
+  // } catch (error) {
+  //     console.error('Error updating account:', error);
+  //     res.status(500).json({ error: 'Database error' });
+  // }
+// });
+
+// Verify JWT Middleware
+const verifyToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+
+  if (!authHeader) return res.status(403).send('Token is required');
+  
+  const token = authHeader.split(' ')[1]; // Remove 'Bearer' from the header
+  if (!token) return res.status(403).send('Token missing');
+
+  jwt.verify(token, JWT_SECRET, (err, decoded) => {
+      if (err) return res.status(401).send('Invalid token');
+      req.user = decoded; // Store the decoded user info in the request
+      next();
+  });
+};
+
+
+app.post('/update-account', verifyToken, (req, res) => {
+  const { fullName, bloodGroup, gender, dob, email, phone, state, city } = req.body;
+  const userId = req.user.id;
+  console.log(userId);
+
+  if (!fullName || !bloodGroup || !gender || !dob || !email || !phone || !state || !city) {
+      return res.status(400).send({ message: 'All fields are required.' });
+  }
+
+  const query = `UPDATE blood_bank.users SET full_name = ?, blood_group = ?, gender = ?, dob = ?, email = ?, phone = ?, state = ?, city = ? WHERE id = ?`;
+  db.query(query, [fullName, bloodGroup, gender, dob, email, phone, state, city, userId], (err, result) => {
+      console.log(err);
+      console.log(result);
+      if (err) return res.status(500).send({ message: 'Database error.' });
+      res.send({ message: 'Account updated successfully.' });
+  });
+});
+
+// app.post('/update-account',async (req,res) => {
+//   console.log(req);
+  
+//   const { fullName, bloodGroup, gender, dob, email, phone, state, city } = req.body;
+//   const userId = req.user.id;
+
+//   if (!fullName || !bloodGroup || !gender || !dob || !email || !phone || !state || !city) {
+//       return res.status(400).json({ error: 'All fields are required' });
+//   }
+
+//   console.log(fullName);
+
+//   res.status(200).json({ message : 'ok'});
+// });
+
+// Delete account route
+app.delete('/deleteAccount', verifyToken, async (req, res) => {
+  try {
+      const userId = req.user.id;  // Extract user ID from token
+      console.log(userId);
+      const deleteQuery = 'DELETE FROM users WHERE id = ?';
+
+      // Execute deletion
+      db.query(deleteQuery, [userId], (error, results) => {
+          if (error) {
+            console.log(error);
+              return res.status(500).json({ message: 'Error deleting account' });
+          }
+
+          if (results.affectedRows === 0) {
+              return res.status(404).json({ message: 'Account not found' });
+          }
+
+          res.status(200).json({ message: 'Account deleted successfully' });
+      });
+  } catch (error) {
+      res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+module.exports = router;
+
+
 
 
 // Start the server
