@@ -6,10 +6,10 @@ body {
 }
 .tabs {
     margin-bottom: 20px;
-    
+
 }
 .tab {
-    margin: 0 10px 10px 0;
+    margin: 20px 10px 10px 20px;
     padding: 10px;
     border: 1px solid #ccc;
     display: inline-block;
