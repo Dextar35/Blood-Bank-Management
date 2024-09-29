@@ -16,78 +16,81 @@
     </div>
 
     <div id="dashboardContent" class="tab-content">Welcome to your dashboard!</div>
-    <div id="updateAccountContent" class="tab-content">
-        <h3>Update Account</h3>
-        <form id="updateAccountForm">
-            <input type="text" id="fullName" placeholder="Full Name" required />
-    
-            <!-- Blood Group Dropdown -->
-            <select id="bloodGroup" required>
-                <option value="" disabled selected>Select Blood Group</option>
-                <option value="A+">A+</option>
-                <option value="A-">A-</option>
-                <option value="B+">B+</option>
-                <option value="B-">B-</option>
-                <option value="AB+">AB+</option>
-                <option value="AB-">AB-</option>
-                <option value="O+">O+</option>
-                <option value="O-">O-</option>
-            </select>
-    
-            <!-- Gender Radio Buttons -->
-            <div class="gender-group">
-                <label>Gender:</label><br>
-                <input type="radio" id="male" name="gender" value="Male" required> Male
-                <input type="radio" id="female" name="gender" value="Female" required> Female
-            </div>
-    
-            <!-- Date of Birth Dropdown -->
-            <div class="dob-group">
-                <label>Date of Birth:</label><br>
-                <select id="dobDay" required>
-                    <option value="" disabled selected>Day</option>
+    <div style="display: flex; justify-content: center; align-content: center; flex-wrap: nowrap; width: 100%;">
+        <div id="updateAccountContent" class="tab-content" style="width: 70%;">
+            <h3>Update Account</h3>
+            <form id="updateAccountForm">
+                <input type="text" id="fullName" placeholder="Full Name" required />
+        
+                <!-- Blood Group Dropdown -->
+                <select id="bloodGroup" required>
+                    <option value="" disabled selected>Select Blood Group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
                 </select>
-                <select id="dobMonth" required>
-                    <option value="" disabled selected>Month</option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
+        
+                <!-- Gender Radio Buttons -->
+                <div class="gender-group">
+                    <label>Gender:</label><br>
+                    <input type="radio" id="male" name="gender" value="Male" required> Male
+                    <input type="radio" id="female" name="gender" value="Female" required> Female
+                </div>
+        
+                <!-- Date of Birth Dropdown -->
+                <div class="dob-group">
+                    <label>Date of Birth:</label><br>
+                    <select id="dobDay" required>
+                        <option value="" disabled selected>Day</option>
+                    </select>
+                    <select id="dobMonth" required>
+                        <option value="" disabled selected>Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select id="dobYear" required>
+                        <option value="" disabled selected>Year</option>
+                    </select>
+                </div>
+        
+                <!-- Email -->
+                <input type="email" id="email" placeholder="Email" required />
+        
+                <!-- Contact Number -->
+                <input type="tel" id="phone" maxlenght="10" placeholder="Contact Number" required />
+        
+                <!-- State Dropdown -->
+                <select id="state" required>
+                    <option value="" disabled selected>Select State</option>
                 </select>
-                <select id="dobYear" required>
-                    <option value="" disabled selected>Year</option>
+        
+                <!-- City Dropdown -->
+                <select id="city" required>
+                    <option value="" disabled selected>Select City</option>
                 </select>
-            </div>
-    
-            <!-- Email -->
-            <input type="email" id="email" placeholder="Email" required />
-    
-            <!-- Contact Number -->
-            <input type="tel" id="phone" placeholder="Contact Number" required />
-    
-            <!-- State Dropdown -->
-            <select id="state" required>
-                <option value="" disabled selected>Select State</option>
-            </select>
-    
-            <!-- City Dropdown -->
-            <select id="city" required>
-                <option value="" disabled selected>Select City</option>
-            </select>
-    
-            <button type="submit">Update</button>
-        </form>
+        
+                <button type="submit">Update</button>
+            </form>
+        </div>
     </div>
-    <div id="changePasswordContent" class="tab-content">
-        <h3>Change Password</h3>
+<div style="display: flex; justify-content: center; align-content: center; flex-wrap: nowrap; width: 100%;">
+    <div id="changePasswordContent" class="tab-content" style="width:50%">
+        <h3 style="text-align: center;">Change Password</h3>
         <form id="changePasswordForm">
             <input type="password" id="currentPassword" placeholder="Old Password" required><br>
             <input type="password" id="newPassword" placeholder="New Password" required><br>
@@ -95,6 +98,7 @@
             <button type="submit">Change Password</button>
         </form>
     </div>
+</div>
     <div id="deleteAccountContent" class="tab-content">
         <h3>Delete Account</h3>
         <form id="deleteAccountForm">
