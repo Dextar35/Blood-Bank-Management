@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 
 const JWT_SECRET = 'H3d$4#1f8jD2X9kA0qPlM$wZ7vE!cGh';
@@ -18,6 +19,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors()); // Enable CORS for all routes
 app.use(express.json());  // This allows your app to handle JSON requests
+// Serve static files from the root directory
+app.use(express.static(path.join(__dirname)));
+
 
 
 // Create a connection to the MySQL database
@@ -331,7 +335,9 @@ app.delete('/deleteAccount', verifyToken, async (req, res) => {
 
 module.exports = router;
 
-
+app.get('/home', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 
 // Start the server
