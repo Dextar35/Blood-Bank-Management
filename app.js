@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(cors()); // Enable CORS for all routes
 app.use(express.json());  // This allows your app to handle JSON requests
 // Serve static files from the root directory
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname,'templates')));
 
 
 
@@ -336,7 +336,7 @@ app.delete('/deleteAccount', verifyToken, async (req, res) => {
 module.exports = router;
 
 app.get('/home', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname,'templates','index.html'));
 });
 
 

@@ -26,7 +26,7 @@ loginForm.addEventListener('submit', function(event) {
           // Store the token
           localStorage.setItem('token', data.token);
           // Redirect to the user's account page
-          window.location.href = 'http://127.0.0.1:3000/dashboard.html'; // Redirect to the account page
+          window.location.href = 'http://localhost:3000/dashboard.html'; // Redirect to the account page
       } else {
           alert(data.error); // Show error message if login failed
       }
