@@ -16,12 +16,22 @@ body {
     width: 300px;
 }
 
-select, button {
+select{
     width: 100%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #7f0210;
     border-radius: 4px;
+}
+
+ button {
+    color: white;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #7f0210;
+    border-radius: 4px;
+    background-color: #7f0210;
 }
 
 

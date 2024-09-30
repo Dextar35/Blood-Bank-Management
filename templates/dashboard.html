@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="static/dashboard.css">
 </head>
+
 <body>
     <div class="tabs">
-        <div id="dashboardTab" class="tab">Dashboard</div>
+        <div id="dashboardTab" class="tab" >Dashboard</div>
         <div id="updateAccountTab" class="tab">Update Account</div>
         <div id="changePasswordTab" class="tab">Change Password</div>
         <div id="logoutTab" class="tab">Log Out</div>
         <div id="deleteTab" class="tab">Delete</div>
     </div>
-
-    <div id="dashboardContent" class="tab-content">Welcome to your dashboard!</div>
+    <div style="display: flex; justify-content: center; align-content: center; flex-wrap: nowrap; width: 100%;">
+        <div id="dashboardContent" class="tab-content" style="text-align: center; width: 70%;">
+            <h3>Thank you for considering about donating blood!<h3>
+                    <p>Your decision could make a life-saving difference for someone in need.</p> Each donation has the
+                    power to help patients undergoing surgery, cancer treatment, or those in emergency situations. It’s
+                    a simple act of kindness that takes just a bit of your time but can mean the world to others. <p>
+                        You're not just giving blood — you're giving hope, strength, and life.</p>
+                    <p>Thank you for being a hero!</p>
+        </div>
+    </div>
     <div style="display: flex; justify-content: center; align-content: center; flex-wrap: nowrap; width: 100%;">
         <div id="updateAccountContent" class="tab-content" style="width: 70%;">
             <h3>Update Account</h3>
             <form id="updateAccountForm">
                 <input type="text" id="fullName" placeholder="Full Name" required />
-        
+
                 <!-- Blood Group Dropdown -->
                 <select id="bloodGroup" required>
                     <option value="" disabled selected>Select Blood Group</option>
@@ -34,14 +44,14 @@
                     <option value="O+">O+</option>
                     <option value="O-">O-</option>
                 </select>
-        
+
                 <!-- Gender Radio Buttons -->
                 <div class="gender-group">
                     <label>Gender:</label><br>
                     <input type="radio" id="male" name="gender" value="Male" required> Male
                     <input type="radio" id="female" name="gender" value="Female" required> Female
                 </div>
-        
+
                 <!-- Date of Birth Dropdown -->
                 <div class="dob-group">
                     <label>Date of Birth:</label><br>
@@ -67,50 +77,50 @@
                         <option value="" disabled selected>Year</option>
                     </select>
                 </div>
-        
+
                 <!-- Email -->
                 <input type="email" id="email" placeholder="Email" required />
-        
+
                 <!-- Contact Number -->
                 <input type="tel" id="phone" maxlenght="10" placeholder="Contact Number" required />
-        
+
                 <!-- State Dropdown -->
                 <select id="state" required>
                     <option value="" disabled selected>Select State</option>
                 </select>
-        
+
                 <!-- City Dropdown -->
                 <select id="city" required>
                     <option value="" disabled selected>Select City</option>
                 </select>
-        
+
                 <button type="submit">Update</button>
             </form>
         </div>
     </div>
-<div style="display: flex; justify-content: center; align-content: center; flex-wrap: nowrap; width: 100%;">
-    <div id="changePasswordContent" class="tab-content" style="width:50%">
-        <h3 style="text-align: center;">Change Password</h3>
-    <!-- <div id="changePasswordContent" class="tab-content" style="justify-content: center;">
+    <div style="display: flex; justify-content: center; align-content: center; flex-wrap: nowrap; width: 100%;">
+        <div id="changePasswordContent" class="tab-content" style="width:50%">
+            <h3 style="text-align: center;">Change Password</h3>
+            <!-- <div id="changePasswordContent" class="tab-content" style="justify-content: center;">
         <h3>Change Password</h3> -->
-        <form id="changePasswordForm">
-            <input type="password" id="currentPassword" placeholder="Old Password" required><br>
-            <input type="password" id="newPassword" placeholder="New Password" required><br>
-            <input type="password" id="confirmNewPassword" placeholder="Confirm New Password" required><br>
-            <button type="submit">Change Password</button>
-        </form>
+            <form id="changePasswordForm">
+                <input type="password" id="currentPassword" placeholder="Old Password" required><br>
+                <input type="password" id="newPassword" placeholder="New Password" required><br>
+                <input type="password" id="confirmNewPassword" placeholder="Confirm New Password" required><br>
+                <button type="submit">Change Password</button>
+            </form>
+        </div>
     </div>
-</div>
-<!-- </div> -->
-<div style="display: flex; justify-content: center; align-content: center; flex-wrap: nowrap; width: 100%;">
-    <div id="deleteAccountContent" class="tab-content" style="width:50%">
-        <h3>Delete Account</h3>
-        <form id="deleteAccountForm">
-            <p>Are you sure you want to delete your account? This action is irreversible.</p>
-            <button type="submit">Yes, delete my account</button>
-        </form>
+    <!-- </div> -->
+    <div style="display: flex; justify-content: center; align-content: center; flex-wrap: nowrap; width: 100%;">
+        <div id="deleteAccountContent" class="tab-content" style="width:50%">
+            <h3>Delete Account</h3>
+            <form id="deleteAccountForm">
+                <p>Are you sure you want to delete your account? This action is irreversible.</p>
+                <button type="submit">Yes, delete my account</button>
+            </form>
+        </div>
     </div>
-</div>
     <script src="js/dashboard.js"></script>
     <script>
         // Populate Day dropdown
@@ -174,7 +184,7 @@
         });
 
         // Update Cities based on selected State
-        stateDropdown.addEventListener('change', function() {
+        stateDropdown.addEventListener('change', function () {
             const selectedState = this.value;
             const cityDropdown = document.getElementById('city');
             cityDropdown.innerHTML = `<option value="" disabled selected>Select City</option>`; // Reset city dropdown
@@ -189,4 +199,5 @@
         });
     </script>
 </body>
+
 </html>

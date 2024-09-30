@@ -6,11 +6,11 @@ body {
 }
 .tabs {
     margin-bottom: 20px;
-
+    padding-left: 350px;
 }
 .tab {
     margin: 20px 10px 10px 20px;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ccc;
     display: inline-block;
     cursor: pointer;
