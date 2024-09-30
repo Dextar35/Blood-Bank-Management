@@ -4,7 +4,10 @@ body {
     margin: 0;
     padding: 20px;
     background-image: url('cell.jpg');
-}
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+} 
 .tabs {
     margin-bottom: 20px;
     padding-left: 350px;
