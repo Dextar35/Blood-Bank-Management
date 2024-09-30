@@ -3,6 +3,7 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 20px;
+    background-image: url('cell.jpg');
 }
 .tabs {
     margin-bottom: 20px;
