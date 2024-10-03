@@ -15,10 +15,16 @@ loginForm.addEventListener('submit', function(event) {
     body: JSON.stringify({ username, password }),
   })
   .then(response => {
-      if (!response.ok) {
-          throw new Error('Network response was not ok ' + response.statusText);
-      }
+    if (response.status === 200) {
       return response.json();
+    } else if (response.status === 400) {
+      // Handle incorrect password or authentication failure
+      alert('Incorrect Username or Password');
+      throw new Error('Incorrect username or password');
+    } else {
+      // Handle other possible errors
+      throw new Error('An error occurred: ' + response.statusText);
+    }
   })
   .then(data => {
       console.log('Login response:', data);

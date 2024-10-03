@@ -42,7 +42,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
       if (response.status === 201) {
           alert(result.message);
           // Redirect to login page
-          window.location.href = 'http://127.0.0.1:3000/login.html';
+          window.location.href = 'http://localhost:3000/login.html';
       } else {
           alert(result.error || 'Registration failed');
       }
