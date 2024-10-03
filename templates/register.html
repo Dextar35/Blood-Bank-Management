@@ -39,8 +39,13 @@
             width: 95%;
             padding: 10px;
             margin: 10px 0;
-            border: 1px solid #ddd;
+            border: 1px solid #7f0210;
             border-radius: 4px;
+        }
+
+        input::placeholder {
+            color: black;
+            
         }
 
         .gender-group {
@@ -90,7 +95,7 @@
             <input type="text" id="fullName" placeholder="Full Name" required />
 
             <!-- Blood Group Dropdown -->
-            <select id="bloodGroup" required>
+            <select id="bloodGroup" style="width: 100%;" required>
                 <option value="" disabled selected>Select Blood Group</option>
                 <option value="A+">A+</option>
                 <option value="A-">A-</option>
@@ -105,8 +110,8 @@
             <!-- Gender Radio Buttons -->
             <div class="gender-group">
                 <label>Gender:</label><br>
-                <input type="radio" id="male" name="gender" value="Male" required> Male <br>
-                <input type="radio" id="female" name="gender" value="Female" required> Female
+                <input type="radio" id="male" name="gender" value="Male" style="margin-top: 10px;" required> Male <br>
+                <input type="radio" id="female" name="gender" value="Female" style="margin-top: 9px;" required> Female
             </div>
 
             <!-- Date of Birth Dropdown -->
@@ -142,12 +147,12 @@
             <input type="tel" id="phone" placeholder="Contact Number" required />
 
             <!-- State Dropdown -->
-            <select id="state" required>
+            <select id="state" style="width: 100%;" required>
                 <option value="" disabled selected>Select State</option>
             </select>
 
             <!-- City Dropdown -->
-            <select id="city" required>
+            <select id="city" style="width: 100%;" required>
                 <option value="" disabled selected>Select City</option>
                 <option value="City1">City1</option>
             </select>
