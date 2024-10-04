@@ -1,28 +1,44 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e3bcb9d1;
+    background: #fff;
+    background-attachment: fixed; 
     margin: 0;
-    padding: 20px;
+    /* padding: 20px; */
     /* background-image: url('WhatsApp\ Image\ 2024-09-30\ at\ 23.03.18_203c0316.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;  */
 } 
+.header {
+    background-color: #7f0210;
+    padding: 10px 0;
+    transform: scale(1);
+    box-shadow: 0 4px 6px rgba(1, 1, 1, 0.1);
+}
+
+.container {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 0 15px;
+}
 .tabs {
-    margin-bottom: 20px;
-    padding-left: 350px;
+    height: 90px;
+    margin-bottom: 40px;
+    padding-left: 560px;
+    background-color: #7f0210;
+    color: white;
+    font-weight: 300;
 }
 .tab {
     margin: 20px 10px 10px 20px;
     padding: 15px;
-    border: 1px solid #ccc;
     display: inline-block;
     cursor: pointer;
-    background-color: #fff;
-    border-radius: 4px;
+    font-size: 17.5px;
 }
 .tab:hover {
-    background-color: #f0f0f0;
+    font-size: large;
+    transition: font-size 0.5s ease; 
 }
 .tab-content {
     display: none;
