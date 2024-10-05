@@ -35,8 +35,10 @@ body {
 
 /* Logo */
 .logo {
-    max-width: 60px;
-    height: auto;
+    width: 70px;
+    /* height: 40px; */
+    border-radius: 50%;
+    justify-content: left;
 }
 
 
