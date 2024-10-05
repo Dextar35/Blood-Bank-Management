@@ -7,7 +7,7 @@ loginForm.addEventListener('submit', function(event) {
   const password = document.getElementById('password').value;
 
   // Make a POST request to the server to login
-  fetch('http://localhost:3000/login', {
+  fetch('/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ loginForm.addEventListener('submit', function(event) {
           // Store the token
           localStorage.setItem('token', data.token);
           // Redirect to the user's account page
-          window.location.href = 'http://localhost:3000/dashboard.html'; // Redirect to the account page
+          window.location.href = '/dashboard'; // Redirect to the account page
       } else {
           alert(data.error); // Show error message if login failed
       }

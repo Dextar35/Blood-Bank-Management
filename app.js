@@ -113,6 +113,9 @@ app.post('/register', async (req, res) => {
 });
 
 // Route to log in a user
+app.get('/login', async (req, res) => {
+  res.sendFile(path.join(__dirname, 'templates', 'login.html'));
+})
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
   
@@ -339,9 +342,13 @@ app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname,'templates','index.html'));
 });
 
+app.get('/dashboard',(req,res) => {
+  res.sendFile(path.join(__dirname,'templates','dashboard.html'));
+})
+
 
 // Start the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT,'::',() => {
   console.log(`Server running on port ${PORT}`);
 });

@@ -29,7 +29,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
   };
 
   try {
-      const response = await fetch('http://localhost:3000/register', {
+      const response = await fetch('/register', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
       if (response.status === 201) {
           alert(result.message);
           // Redirect to login page
-          window.location.href = 'http://localhost:3000/login.html';
+          window.location.href = '/login';
       } else {
           alert(result.error || 'Registration failed');
       }
