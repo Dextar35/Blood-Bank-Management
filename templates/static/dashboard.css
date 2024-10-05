@@ -1,13 +1,13 @@
 body {
-    font-family:"Droid Sana", sans-serif;
-    background: #fff;
+    /* font-family:"Droid Sana", sans-serif; */
+    background: #ffff;
     background-attachment: fixed; 
     margin: 0;
-    /* padding: 20px; */
-    /* background-image: url('WhatsApp\ Image\ 2024-09-30\ at\ 23.03.18_203c0316.jpg');
+    padding: 0.5px;
+    /* background-image: url('background1.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;  */
+    background-size: 100% 100%;  */
 } 
 .header {
     background-color: #7f0210;
@@ -22,8 +22,9 @@ body {
     padding: 0 15px;
 }
 .tabs {
+    font-family:"Droid Sana", sans-serif;
     height: 90px;
-    margin-bottom: 40px;
+    margin-bottom: 2px;
     padding-left: 560px;
     background-color: #7f0210;
     color: white;
@@ -44,11 +45,10 @@ body {
     display: none;
 }
 .tab-content.active {
+    margin-top: 40px;
     display: block;
     padding: 20px;
-    border: 1px solid #ccc;
     background-color: #fff;
-    border-radius: 4px;
 }
 form {
     display: grid;
