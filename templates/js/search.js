@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (city) searchParams.append('city', city);
         if (bloodGroup) searchParams.append('bloodGroup', bloodGroup);
 
-        const response = await fetch(`http://localhost:3000/search?${searchParams.toString()}`);
+        const response = await fetch(`/search?${searchParams.toString()}`);
         const donors = await response.json();
         
         const resultsContainer = document.getElementById('resultsContainer');

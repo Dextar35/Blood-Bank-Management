@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('http://localhost:3000/donors'); // Adjust the URL based on your server configuration
+        const response = await fetch('/donors'); // Adjust the URL based on your server configuration
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
