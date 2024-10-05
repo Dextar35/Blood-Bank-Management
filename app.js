@@ -346,6 +346,17 @@ app.get('/dashboard',(req,res) => {
   res.sendFile(path.join(__dirname,'templates','dashboard.html'));
 })
 
+app.get('/donors', (req, res) => {
+  res.sendFile(path.join(__dirname,'templates','donor.html'));
+});
+
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname,'templates','register.html'));
+});
+
+app.get('/search', (req, res) => {
+  res.sendFile(path.join(__dirname,'templates','search.html'));
+});
 
 // Start the server
 const PORT = process.env.PORT || 3000;
