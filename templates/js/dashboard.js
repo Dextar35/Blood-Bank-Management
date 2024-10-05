@@ -168,6 +168,160 @@
 //         }
 //     });
 // });
+// document.addEventListener('DOMContentLoaded', () => {
+//     const dashboardTab = document.getElementById('dashboardTab');
+//     const updateAccountTab = document.getElementById('updateAccountTab');
+//     const changePasswordTab = document.getElementById('changePasswordTab');
+//     const logoutTab = document.getElementById('logoutTab');
+//     const deleteTab = document.getElementById('deleteTab');
+
+//     const dashboardContent = document.getElementById('dashboardContent');
+//     const updateAccountContent = document.getElementById('updateAccountContent');
+//     const changePasswordContent = document.getElementById('changePasswordContent');
+//     const deleteAccountContent = document.getElementById('deleteAccountContent');
+
+//     // Handle tab switching
+//     dashboardTab.addEventListener('click', () => {
+//         openTab('dashboardContent');
+//     });
+
+//     updateAccountTab.addEventListener('click', () => {
+//         openTab('updateAccountContent');
+//     });
+
+//     changePasswordTab.addEventListener('click', () => {
+//         openTab('changePasswordContent');
+//     });
+
+//     logoutTab.addEventListener('click', () => {
+//         localStorage.removeItem('token'); // Clear token on logout
+//         window.location.href = 'login.html'; // Redirect to login
+//     });
+
+//     deleteTab.addEventListener('click', () => {
+//         openTab('deleteAccountContent');
+//     });
+
+//     // Open a specific tab
+//     function openTab(tabId) {
+//         dashboardContent.classList.remove('active');
+//         updateAccountContent.classList.remove('active');
+//         changePasswordContent.classList.remove('active');
+//         deleteAccountContent.classList.remove('active');
+
+//         document.getElementById(tabId).classList.add('active');
+//     }
+
+//     // Show Dashboard tab on page load/refresh
+//     openTab('dashboardContent');
+// });
+
+// // Update Account Form Submission
+// const updateAccountForm = document.getElementById('updateAccountForm');
+// updateAccountForm.addEventListener('submit', function (event) {
+//     event.preventDefault();
+
+//     const fullName = document.getElementById('fullName').value;
+//     const bloodGroup = document.getElementById('bloodGroup').value;
+//     const gender = document.querySelector('input[name="gender"]:checked').value;
+//     const dobDay = document.getElementById('dobDay').value;
+//     const dobMonth = document.getElementById('dobMonth').value;
+//     const dobYear = document.getElementById('dobYear').value;
+//     const dob = `${dobYear}-${dobMonth}-${dobDay}`;
+//     const email = document.getElementById('email').value;
+//     const phone = document.getElementById('phone').value;
+//     const state = document.getElementById('state').value;
+//     const city = document.getElementById('city').value;
+
+//     fetch('http://localhost:3000/update-account', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': getToken(),
+//         },
+//         body: JSON.stringify({ fullName, bloodGroup, gender, dob, email, phone, state, city })
+//     })
+//         .then(response => {
+//             if (response.status === 401) {
+//                 throw new Error('Unauthorized - Invalid token');
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             alert(data.message || 'Account updated successfully.');
+//         })
+//         .catch(error => {
+//             console.error('Error:', error);
+//         });
+// });
+
+// // Change Password Form Submission
+// const changePasswordForm = document.getElementById('changePasswordForm');
+// changePasswordForm.addEventListener('submit', function (event) {
+//     event.preventDefault();
+
+//     const currentPassword = document.getElementById('currentPassword').value;
+//     const newPassword = document.getElementById('newPassword').value;
+//     const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+//     if (newPassword !== confirmNewPassword) {
+//         alert('New passwords do not match');
+//         return;
+//     }
+
+//     fetch('http://localhost:3000/change-password', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': getToken(),
+//         },
+//         body: JSON.stringify({ currentPassword, newPassword })
+//     })
+//         .then(response => response.json())
+//         .then(data => {
+//             alert(data.message || 'Password changed successfully.');
+//         })
+//         .catch(error => {
+//             console.error('Error:', error);
+//         });
+// });
+
+// // Delete Account Form Submission
+// const deleteAccountForm = document.getElementById('deleteAccountForm');
+// deleteAccountForm.addEventListener('submit', async function (event) {
+//     event.preventDefault();
+
+//     const confirmation = confirm('Are you sure you want to delete your account? This action is irreversible.');
+//     if (!confirmation) return;
+
+//     try {
+//         const response = await fetch('http://localhost:3000/deleteAccount', {
+//             method: 'DELETE',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': getToken(),
+//             }
+//         });
+
+//         const data = await response.json();
+
+//         if (response.status === 200) {
+//             alert(data.message);
+//             window.location.href = '/login.html'; // Redirect after deletion
+//         } else {
+//             alert(data.message || 'Error deleting account');
+//         }
+//     } catch (error) {
+//         console.error('Error deleting account:', error);
+//         alert('Error deleting account');
+//     }
+// });
+
+// // Helper function to get JWT token from local storage
+// function getToken() {
+//     return `Bearer ${localStorage.getItem('token')}`;
+// }
+
 document.addEventListener('DOMContentLoaded', () => {
     const dashboardTab = document.getElementById('dashboardTab');
     const updateAccountTab = document.getElementById('updateAccountTab');
@@ -179,18 +333,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateAccountContent = document.getElementById('updateAccountContent');
     const changePasswordContent = document.getElementById('changePasswordContent');
     const deleteAccountContent = document.getElementById('deleteAccountContent');
+    
+    // Add the wallpaper container
+    const wallpaper = document.getElementById('wallpaper');
 
     // Handle tab switching
     dashboardTab.addEventListener('click', () => {
         openTab('dashboardContent');
+        wallpaper.style.display = 'block'; // Show wallpaper when dashboard tab is active
     });
 
     updateAccountTab.addEventListener('click', () => {
         openTab('updateAccountContent');
+        wallpaper.style.display = 'none'; // Hide wallpaper for other tabs
     });
 
     changePasswordTab.addEventListener('click', () => {
         openTab('changePasswordContent');
+        wallpaper.style.display = 'none'; // Hide wallpaper for other tabs
     });
 
     logoutTab.addEventListener('click', () => {
@@ -200,6 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     deleteTab.addEventListener('click', () => {
         openTab('deleteAccountContent');
+        wallpaper.style.display = 'none'; // Hide wallpaper for other tabs
     });
 
     // Open a specific tab
@@ -212,112 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById(tabId).classList.add('active');
     }
 
-    // Show Dashboard tab on page load/refresh
+    // Show Dashboard tab and wallpaper on page load/refresh
     openTab('dashboardContent');
+    wallpaper.style.display = 'block'; // Ensure wallpaper is visible when page is loaded
 });
-
-// Update Account Form Submission
-const updateAccountForm = document.getElementById('updateAccountForm');
-updateAccountForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const fullName = document.getElementById('fullName').value;
-    const bloodGroup = document.getElementById('bloodGroup').value;
-    const gender = document.querySelector('input[name="gender"]:checked').value;
-    const dobDay = document.getElementById('dobDay').value;
-    const dobMonth = document.getElementById('dobMonth').value;
-    const dobYear = document.getElementById('dobYear').value;
-    const dob = `${dobYear}-${dobMonth}-${dobDay}`;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const state = document.getElementById('state').value;
-    const city = document.getElementById('city').value;
-
-    fetch('http://localhost:3000/update-account', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': getToken(),
-        },
-        body: JSON.stringify({ fullName, bloodGroup, gender, dob, email, phone, state, city })
-    })
-        .then(response => {
-            if (response.status === 401) {
-                throw new Error('Unauthorized - Invalid token');
-            }
-            return response.json();
-        })
-        .then(data => {
-            alert(data.message || 'Account updated successfully.');
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-});
-
-// Change Password Form Submission
-const changePasswordForm = document.getElementById('changePasswordForm');
-changePasswordForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const currentPassword = document.getElementById('currentPassword').value;
-    const newPassword = document.getElementById('newPassword').value;
-    const confirmNewPassword = document.getElementById('confirmNewPassword').value;
-
-    if (newPassword !== confirmNewPassword) {
-        alert('New passwords do not match');
-        return;
-    }
-
-    fetch('http://localhost:3000/change-password', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': getToken(),
-        },
-        body: JSON.stringify({ currentPassword, newPassword })
-    })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.message || 'Password changed successfully.');
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-});
-
-// Delete Account Form Submission
-const deleteAccountForm = document.getElementById('deleteAccountForm');
-deleteAccountForm.addEventListener('submit', async function (event) {
-    event.preventDefault();
-
-    const confirmation = confirm('Are you sure you want to delete your account? This action is irreversible.');
-    if (!confirmation) return;
-
-    try {
-        const response = await fetch('http://localhost:3000/deleteAccount', {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': getToken(),
-            }
-        });
-
-        const data = await response.json();
-
-        if (response.status === 200) {
-            alert(data.message);
-            window.location.href = '/login.html'; // Redirect after deletion
-        } else {
-            alert(data.message || 'Error deleting account');
-        }
-    } catch (error) {
-        console.error('Error deleting account:', error);
-        alert('Error deleting account');
-    }
-});
-
-// Helper function to get JWT token from local storage
-function getToken() {
-    return `Bearer ${localStorage.getItem('token')}`;
-}
