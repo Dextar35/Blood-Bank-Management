@@ -4,10 +4,10 @@ body {
     background-attachment: fixed; 
     margin: 0;
     /* padding: 20px; */
-    /* background-image: url('WhatsApp\ Image\ 2024-09-30\ at\ 23.03.18_203c0316.jpg');
+    background-image: url('WhatsApp\ Image\ 2024-09-30\ at\ 23.03.18_203c0316.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;  */
+    background-size: cover; 
 } 
 .header {
     background-color: #7f0210;
