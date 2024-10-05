@@ -1,16 +1,17 @@
 body {
     font-family:"Droid Sana", sans-serif;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100vh;
     margin: 0;
-    /* background-image: url("templates/static/background.png");
-    background-size: cover; 
+    background-image: url('wallpaper3.png');
+    background-size: 100vw 100vh; 
     background-position: center; 
-    background-repeat: no-repeat; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .container {
     background-color: white;
