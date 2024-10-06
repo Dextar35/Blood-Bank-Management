@@ -5,8 +5,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
-    margin: 0;
+    height: auto;
+    margin-top: 150px;
     background-image: url('wallpaper3.png');
     background-size: 100vw 100vh; 
     background-position: center; 
