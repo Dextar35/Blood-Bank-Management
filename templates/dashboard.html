@@ -59,10 +59,10 @@
         <div id="updateAccountContent" class="tab-content" style="width: 70%;">
             <h3 style="text-align:center">Update Account</h3>
             <form id="updateAccountForm">
-                <input type="text" id="fullName" placeholder="Full Name" required />
+                <input type="text" id="fullName" placeholder="Full Name" required style="border:1px solid #7f0210;" />
 
                 <!-- Blood Group Dropdown -->
-                <select id="bloodGroup" required>
+                <select id="bloodGroup" required style="border:1px solid #7f0210;">
                     <option value="" disabled selected>Select Blood Group</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
@@ -84,10 +84,10 @@
                 <!-- Date of Birth Dropdown -->
                 <div class="dob-group">
                     <label>Date of Birth:</label><br>
-                    <select id="dobDay" required>
+                    <select id="dobDay" required  style="border:1px solid #7f0210;" >
                         <option value="" disabled selected>Day</option>
                     </select>
-                    <select id="dobMonth" required>
+                    <select id="dobMonth" required  style="border:1px solid #7f0210;" >
                         <option value="" disabled selected>Month</option>
                         <option value="1">January</option>
                         <option value="2">February</option>
@@ -102,24 +102,24 @@
                         <option value="11">November</option>
                         <option value="12">December</option>
                     </select>
-                    <select id="dobYear" required>
+                    <select id="dobYear" required  style="border:1px solid #7f0210;" >
                         <option value="" disabled selected>Year</option>
                     </select>
                 </div>
 
                 <!-- Email -->
-                <input type="email" id="email" placeholder="Email" required />
+                <input type="email" id="email" placeholder="Email" required  style="border:1px solid #7f0210;"/>
 
                 <!-- Contact Number -->
-                <input type="tel" id="phone" maxlenght="10" placeholder="Contact Number" required />
+                <input type="tel" id="phone" maxlenght="10" placeholder="Contact Number" required  style="border:1px solid #7f0210;" />
 
                 <!-- State Dropdown -->
-                <select id="state" required>
+                <select id="state" required  style="border:1px solid #7f0210;" >
                     <option value="" disabled selected>Select State</option>
                 </select>
 
                 <!-- City Dropdown -->
-                <select id="city" required>
+                <select id="city" required  style="border:1px solid #7f0210;" >
                     <option value="" disabled selected>Select City</option>
                 </select>
 
@@ -133,9 +133,9 @@
             <!-- <div id="changePasswordContent" class="tab-content" style="justify-content: center;">
         <h3>Change Password</h3> -->
             <form id="changePasswordForm">
-                <input type="password" id="currentPassword" placeholder="Old Password" required><br>
-                <input type="password" id="newPassword" placeholder="New Password" required><br>
-                <input type="password" id="confirmNewPassword" placeholder="Confirm New Password" required><br>
+                <input type="password" id="currentPassword" placeholder="Old Password" required  style="border:1px solid #7f0210;" ><br>
+                <input type="password" id="newPassword" placeholder="New Password" required  style="border:1px solid #7f0210;" ><br>
+                <input type="password" id="confirmNewPassword" placeholder="Confirm New Password" required  style="border:1px solid #7f0210;" ><br>
                 <button type="submit">Change Password</button>
             </form>
         </div>
