@@ -336,7 +336,6 @@ app.delete('/deleteAccount', verifyToken, async (req, res) => {
   }
 });
 
-module.exports = router;
 
 app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname,'templates','index.html'));
