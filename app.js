@@ -307,7 +307,7 @@ app.post('/update-account', verifyToken, (req, res) => {
       return res.status(400).send({ message: 'All fields are required.' });
   }
 
-  const query = `UPDATE blood_bank.users SET full_name = ?, blood_group = ?, gender = ?, dob = ?, email = ?, phone = ?, state = ?, city = ? WHERE id = ?`;
+  const query = `UPDATE users SET full_name = ?, blood_group = ?, gender = ?, dob = ?, email = ?, phone = ?, state = ?, city = ? WHERE id = ?`;
   db.query(query, [fullName, bloodGroup, gender, dob, email, phone, state, city, userId], (err, result) => {
       console.log(err);
       console.log(result);
