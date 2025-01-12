@@ -630,3 +630,195 @@ li ul li a:hover {
         display: none; /* Hide arrows on small screens if desired */
     }
 }
+
+/* General Mobile Optimization */
+@media (max-width: 768px) {
+    /* Adjust header padding and font size */
+    .header {
+        padding: 5px 0;
+    }
+    .logo {
+        width: 60px;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    a {
+        font-size: 14px;
+    }
+    /* Hero Section Adjustments */
+    .carousel-caption h5 {
+        font-size: 24px;
+    }
+    .carousel-caption .img-content {
+        font-size: 16px;
+    }
+    .carousel-caption .imgBtn {
+        font-size: 14px;
+    }
+    .carousel-inner .carousel-item {
+        height: 300px;
+    }
+    /* Donor Count Section */
+    .donorCount {
+        padding: 15px 0;
+    }
+    .count {
+        font-size: 36px;
+    }
+    .totalCount {
+        font-size: 16px;
+    }
+    /* Learn About Donation Section */
+    .learn-donation {
+        padding: 30px 0;
+    }
+    .section-heading {
+        font-size: 28px;
+    }
+    .selectBtn {
+        font-size: 14px;
+    }
+    .select-container {
+        padding: 15px;
+    }
+    /* Flexbox Adjustments */
+    .d-xl-flex {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .card-container {
+        max-width: 100%;
+    }
+    .card-text {
+        font-size: 1rem;
+    }
+    /* Hide arrows on small screens */
+    .arrow-container {
+        display: none;
+    }
+}
+
+/* Smaller Devices (Smartphones in Portrait) */
+@media (max-width: 576px) {
+    .header {
+        padding: 5px 0;
+    }
+    .logo {
+        width: 50px;
+    }
+    a {
+        font-size: 12px;
+    }
+    /* Adjust carousel caption */
+    .carousel-caption h5 {
+        font-size: 20px;
+    }
+    .carousel-caption .img-content {
+        font-size: 14px;
+    }
+    .carousel-caption .imgBtn {
+        font-size: 12px;
+    }
+    .carousel-inner .carousel-item {
+        height: 250px;
+    }
+    /* Donor Count Section */
+    .donorCount {
+        padding: 10px 0;
+    }
+    .count {
+        font-size: 30px;
+    }
+    .totalCount {
+        font-size: 14px;
+    }
+    /* Learn About Donation Section */
+    .learn-donation {
+        padding: 20px 0;
+    }
+    .section-heading {
+        font-size: 24px;
+    }
+    .selectBtn {
+        font-size: 12px;
+    }
+    .select-container {
+        padding: 10px;
+    }
+    .d-xl-flex {
+        flex-direction: column;
+    }
+    .card-container {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+    .card-text {
+        font-size: 0.9rem;
+    }
+    /* Hide arrows on small screens */
+    .arrow-container {
+        display: none;
+    }
+}
+
+/* Very Small Devices (e.g., smaller phones) */
+@media (max-width: 320px) {
+    .header {
+        padding: 5px 0;
+    }
+    .logo {
+        width: 45px;
+    }
+    a {
+        font-size: 10px;
+    }
+    .carousel-caption h5 {
+        font-size: 18px;
+    }
+    .carousel-caption .img-content {
+        font-size: 12px;
+    }
+    .carousel-caption .imgBtn {
+        font-size: 10px;
+    }
+    .carousel-inner .carousel-item {
+        height: 200px;
+    }
+    .donorCount {
+        padding: 8px 0;
+    }
+    .count {
+        font-size: 26px;
+    }
+    .totalCount {
+        font-size: 12px;
+    }
+    .learn-donation {
+        padding: 15px 0;
+    }
+    .section-heading {
+        font-size: 22px;
+    }
+    .selectBtn {
+        font-size: 10px;
+    }
+    .select-container {
+        padding: 5px;
+    }
+    .d-xl-flex {
+        flex-direction: column;
+    }
+    .card-container {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+    .card-text {
+        font-size: 0.8rem;
+    }
+}
