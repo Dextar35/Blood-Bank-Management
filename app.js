@@ -24,23 +24,42 @@ app.use(express.static(path.join(__dirname,'templates')));
 
 
 
-// Create a connection to the MySQL database
-const db = mysql.createConnection({
+// // Create a connection to the MySQL database
+// const db = mysql.createConnection({
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASS,
+//   database: process.env.DB_NAME,
+//   port: process.env.DB_PORT
+// });
+
+// // Connect to the database
+// db.connect((err) => {
+//   if (err) {
+//     console.error('Error connecting to the database:', err);
+//     return;
+//   }
+//   console.log('Connected to the MySQL database.');
+// });
+
+const db = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  port: process.env.DB_PORT
+  port: process.env.DB_PORT,
+  connectionLimit: 10, // Adjust based on your needs
 });
 
-// Connect to the database
-db.connect((err) => {
+db.getConnection((err, connection) => {
   if (err) {
     console.error('Error connecting to the database:', err);
     return;
   }
-  console.log('Connected to the MySQL database.');
+  if (connection) connection.release(); // Release the connection back to the pool
+  console.log('Connected to the MySQL database via connection pool.');
 });
+
 
 // A simple route to check if the server is working
 app.get('/', (req, res) => {
