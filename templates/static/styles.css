@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family:"Droid Sana", sans-serif;
+    font-family: "Droid Sana", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -18,9 +18,11 @@ body {
     margin: 0 auto;
     padding: 0 15px;
 }
- .bg-img{
+
+.bg-img {
     background-image: url("background.png");
- }
+}
+
 .d-flex {
     display: flex;
 }
@@ -36,12 +38,8 @@ body {
 /* Logo */
 .logo {
     width: 70px;
-    /* height: 40px; */
     border-radius: 50%;
-    justify-content: left;
 }
-
-
 
 /* Navigation */
 .navbar {
@@ -98,14 +96,6 @@ li ul li a:hover {
     color: #007bff;
 }
 
-
-
-@media (min-width: 769px) {
-    .d-xl-none, .d-lg-none {
-        display: none;
-    }
-}
-
 /* Hero Section Styles */
 .heroComponent {
     position: relative;
@@ -133,10 +123,6 @@ li ul li a:hover {
     border: none;
     background-color: #c0222b;
     transition: background-color 0.3s ease;
-}
-
-.carousel-indicators {
-    background-color: #c0222b;
 }
 
 /* Carousel Inner Styles */
@@ -201,26 +187,6 @@ li ul li a:hover {
     background-color: #e2b0ac;
 }
 
-/* For different carousel items */
-.carousel-item img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.carousel-item.active {
-    animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 /* Responsive Styles */
 @media (max-width: 768px) {
     .carousel-caption {
@@ -255,34 +221,6 @@ li ul li a:hover {
     }
 }
 
-/* Styling carousel for smaller screen sizes */
-.carousel-inner .carousel-item {
-    height: 300px;
-}
-
-@media (min-width: 768px) {
-    .carousel-inner .carousel-item {
-        height: 500px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .carousel-inner .carousel-item {
-        height: 600px;
-    }
-}
-
-/* Additional styles */
-.carousel-image-right img {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .carousel-image-right img {
-        display: block;
-    }
-}
-
 /* Donor Count Section Styles */
 .donorCount {
     background-color: #f8f9fa;
@@ -292,13 +230,12 @@ li ul li a:hover {
     margin: 20px 0;
 }
 
-/* Flexbox for alignment */
-.donorCount .d-xl-flex, 
-.donorCount .d-lg-flex, 
-.donorCount .d-md-flex, 
+.donorCount .d-xl-flex,
+.donorCount .d-lg-flex,
+.donorCount .d-md-flex,
 .donorCount .d-sm-flex {
     display: flex;
-    justify-content: center; /* Center the content */
+    justify-content: center;
     align-items: center;
 }
 
@@ -308,10 +245,10 @@ li ul li a:hover {
     border-radius: 5px;
     padding: 18px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1; /* Ensures equal space for both sections */
-    min-width: 250px; /* Prevents items from getting too small */
-    text-align: center; /* Centers text */
-    position: relative; /* For positioning the pseudo-element */
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    position: relative;
 }
 
 .bg-left {
@@ -319,17 +256,16 @@ li ul li a:hover {
     color: #fff;
 }
 
-/* Pseudo-element for the slash effect */
 .bg-left::after {
     content: '/';
     position: absolute;
-    top: 50%; /* Center vertically */
-    left: 100%; /* Position to the right of the left section */
-    transform: translateY(-50%); /* Adjust to center */
-    font-size: 48px; /* Size of the slash */
-    color: #fff; /* Color of the slash */
-    background-color: #f8f9fa; /* Match background */
-    padding: 0 10px; /* Space around the slash */
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    font-size: 48px;
+    color: #fff;
+    background-color: #f8f9fa;
+    padding: 0 10px;
 }
 
 .bg-right {
@@ -350,62 +286,11 @@ li ul li a:hover {
     margin: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .bg-left, .bg-right {
-        padding: 15px;
-    }
-
-    .count {
-        font-size: 36px;
-    }
-
-    .totalCount {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 576px) {
-    .count {
-        font-size: 30px;
-    }
-
-    .totalCount {
-        font-size: 14px;
-    }
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .bg-left, .bg-right {
-        padding: 15px;
-    }
-
-    .count {
-        font-size: 36px;
-    }
-
-    .totalCount {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 576px) {
-    .count {
-        font-size: 30px;
-    }
-
-    .totalCount {
-        font-size: 14px;
-    }
-}
-
 /* Learn About Donation Section */
 .learn-donation {
     background-image: url(background.png) !important;
-    background-size: cover; /* or 'contain', 'auto', etc. */
-    background-position: center; /* to center the image */
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     padding: 50px 0;
 }
@@ -453,14 +338,14 @@ li ul li a:hover {
 }
 
 .org-container, .blue-container {
-    background-color: #ffe0b2; /* Orange background for "can take" */
+    background-color: #ffe0b2;
     border-radius: 10px;
     padding: 20px;
     color: #000;
 }
 
 .blue-container {
-    background-color: #bbdefb; /* Blue background for "can give" */
+    background-color: #bbdefb;
     margin-top: 15px;
 }
 
@@ -482,66 +367,19 @@ li ul li a:hover {
     font-weight: bold;
 }
 
-/* Styling for the person image */
-.select-container img {
-    width: 100px;
-    height: auto;
-}
-
-/* Blood type selection buttons */
-.d-flex {
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2px;
-}
-
-.selectBtn {
-    width: 100px;
-    height: 50px;
-    text-align: center;
-    line-height: 30px;
-    border-radius: 5px;
-    margin: 5px;
-}
-
-.carousel-caption .btn.imgBtn {
-    background-color: #8A1F17;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.carousel-caption .btn.imgBtn:hover {
-    background-color: #600d0a;
-    transition: background-color 0.3s ease;
-}
-
-
-.section-heading {
-    font-size: 2.5rem;
-    color: #333;
-}
-
-.donation {
-    color: #e74c3c; /* Highlight color for the word 'Donation' */
-}
-
 /* Flexbox for One-Line Layout */
 .d-xl-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap; /* Ensures cards stay in one line */
-    gap: 20px; /* Adjust the spacing between cards */
+    flex-wrap: nowrap;
+    gap: 20px;
 }
 
 .card-container {
     flex: 1;
-    min-width: 200px; /* Minimum size for smaller screens */
-    max-width: 300px; /* Maximum size for larger screens */
+    min-width: 200px;
+    max-width: 300px;
 }
 
 .card {
@@ -568,257 +406,11 @@ li ul li a:hover {
 }
 
 .card-text {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
+    font-size: 18px;
+    font-weight: 500;
 }
 
-.card-text-light {
-    font-size: 0.95rem;
-    color: #666;
-}
-
-/* Arrow Styling */
-.arrow-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.arrow-container img {
-    width: 40px;
-    height: auto;
-}
-
-/* Responsive Layout */
-@media (max-width: 1200px) {
-    .d-xl-flex {
-        flex-wrap: wrap; /* Cards wrap on smaller screens */
-        justify-content: center;
-    }
-
-    .arrow-container {
-        margin-bottom: 20px;
-    }
-
-    .card-container {
-        max-width: 250px;
-        margin-bottom: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .section-heading {
-        font-size: 2rem;
-    }
-
-    .arrow-container img {
-        width: 30px;
-    }
-
-    .card-container {
-        max-width: 200px;
-    }
-
-    .d-xl-flex {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        align-items: center;
-    }
-
-    .arrow-container {
-        display: none; /* Hide arrows on small screens if desired */
-    }
-}
-
-/* General Mobile Optimization */
-@media (max-width: 768px) {
-    /* Adjust header padding and font size */
-    .header {
-        padding: 5px 0;
-    }
-    .logo {
-        width: 60px;
-    }
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-    }
-    .navbar ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-    a {
-        font-size: 14px;
-    }
-    /* Hero Section Adjustments */
-    .carousel-caption h5 {
-        font-size: 24px;
-    }
-    .carousel-caption .img-content {
-        font-size: 16px;
-    }
-    .carousel-caption .imgBtn {
-        font-size: 14px;
-    }
-    .carousel-inner .carousel-item {
-        height: 300px;
-    }
-    /* Donor Count Section */
-    .donorCount {
-        padding: 15px 0;
-    }
-    .count {
-        font-size: 36px;
-    }
-    .totalCount {
-        font-size: 16px;
-    }
-    /* Learn About Donation Section */
-    .learn-donation {
-        padding: 30px 0;
-    }
-    .section-heading {
-        font-size: 28px;
-    }
-    .selectBtn {
-        font-size: 14px;
-    }
-    .select-container {
-        padding: 15px;
-    }
-    /* Flexbox Adjustments */
-    .d-xl-flex {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .card-container {
-        max-width: 100%;
-    }
-    .card-text {
-        font-size: 1rem;
-    }
-    /* Hide arrows on small screens */
-    .arrow-container {
-        display: none;
-    }
-}
-
-/* Smaller Devices (Smartphones in Portrait) */
-@media (max-width: 576px) {
-    .header {
-        padding: 5px 0;
-    }
-    .logo {
-        width: 50px;
-    }
-    a {
-        font-size: 12px;
-    }
-    /* Adjust carousel caption */
-    .carousel-caption h5 {
-        font-size: 20px;
-    }
-    .carousel-caption .img-content {
-        font-size: 14px;
-    }
-    .carousel-caption .imgBtn {
-        font-size: 12px;
-    }
-    .carousel-inner .carousel-item {
-        height: 250px;
-    }
-    /* Donor Count Section */
-    .donorCount {
-        padding: 10px 0;
-    }
-    .count {
-        font-size: 30px;
-    }
-    .totalCount {
-        font-size: 14px;
-    }
-    /* Learn About Donation Section */
-    .learn-donation {
-        padding: 20px 0;
-    }
-    .section-heading {
-        font-size: 24px;
-    }
-    .selectBtn {
-        font-size: 12px;
-    }
-    .select-container {
-        padding: 10px;
-    }
-    .d-xl-flex {
-        flex-direction: column;
-    }
-    .card-container {
-        max-width: 100%;
-        margin-bottom: 10px;
-    }
-    .card-text {
-        font-size: 0.9rem;
-    }
-    /* Hide arrows on small screens */
-    .arrow-container {
-        display: none;
-    }
-}
-
-/* Very Small Devices (e.g., smaller phones) */
-@media (max-width: 320px) {
-    .header {
-        padding: 5px 0;
-    }
-    .logo {
-        width: 45px;
-    }
-    a {
-        font-size: 10px;
-    }
-    .carousel-caption h5 {
-        font-size: 18px;
-    }
-    .carousel-caption .img-content {
-        font-size: 12px;
-    }
-    .carousel-caption .imgBtn {
-        font-size: 10px;
-    }
-    .carousel-inner .carousel-item {
-        height: 200px;
-    }
-    .donorCount {
-        padding: 8px 0;
-    }
-    .count {
-        font-size: 26px;
-    }
-    .totalCount {
-        font-size: 12px;
-    }
-    .learn-donation {
-        padding: 15px 0;
-    }
-    .section-heading {
-        font-size: 22px;
-    }
-    .selectBtn {
-        font-size: 10px;
-    }
-    .select-container {
-        padding: 5px;
-    }
-    .d-xl-flex {
-        flex-direction: column;
-    }
-    .card-container {
-        max-width: 100%;
-        margin-bottom: 10px;
-    }
-    .card-text {
-        font-size: 0.8rem;
-    }
+/* Hover Effects */
+.card:hover .card-text {
+    color: #007bff;
 }
